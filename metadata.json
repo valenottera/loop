@@ -1,0 +1,8 @@
+{
+  "name": "LO/OP - Longevity Optimized",
+  "description": "Workshop e webinar di behaviour change e respirazione. Il tuo cervello funziona in pilota automatico. LO/OP ti insegna a riprendere i comandi, con abitudini e respirazione per aggiungere anni buoni alla tua vita.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

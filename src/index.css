@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-title: 'Comfortaa', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base resets & typography */
+html {
+  font-family: var(--font-sans);
+  background-color: #050608;
+  color: #ffffff;
+  color-scheme: dark;
+}
+
+/* Comfortaa solo per i titoli */
+h1, h2, h3, h4, h5, h6, .font-title {
+  font-family: var(--font-title);
+}
+
+/* Sfumatura di profondità scientifica per lo sfondo scuro */
+.lab-ambient-bg {
+  background: 
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(26, 34, 48, 0.45) 0%, rgba(9, 12, 17, 0.85) 60%, #030406 100%),
+    linear-gradient(180deg, #090c10 0%, #050608 30%, #040507 70%, #020203 100%);
+}
+
+/* Riflessi e bagliori dinamici sugli outline (specular sheen) */
+@keyframes specularLineSweep {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(300%);
+    opacity: 0;
+  }
+}
+
+.line-sheen-sweep {
+  animation: specularLineSweep 7s ease-in-out infinite;
+}
+
+.line-sheen-sweep-delayed {
+  animation: specularLineSweep 7s ease-in-out 3.5s infinite;
+}
+
+@keyframes cardSpecularPulse {
+  0%, 100% {
+    opacity: 0.15;
+    background-position: 0% 50%;
+  }
+  50% {
+    opacity: 0.6;
+    background-position: 100% 50%;
+  }
+}
+
+.card-specular-edge {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: cardSpecularPulse 5s ease-in-out infinite;
+}
+
+/* Impulsi di luce visibili che scorrono lungo il perimetro delle lettere */
+@keyframes sparkRunA {
+  0% {
+    stroke-dashoffset: 460;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes sparkRunB {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -460;
+  }
+}
+
+@keyframes sparkRunC {
+  0% {
+    stroke-dashoffset: 320;
+  }
+  100% {
+    stroke-dashoffset: -100;
+  }
+}
+
+.spark-stream-a {
+  animation: sparkRunA 3.6s linear infinite;
+}
+
+.spark-stream-b {
+  animation: sparkRunB 3.0s linear infinite;
+}
+
+.spark-stream-c {
+  animation: sparkRunC 2.6s linear infinite;
+}
+
+/* Scarica dell'arco sinaptico: breve impulso bio-elettrico */
+@keyframes arcFlash {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.spark-arc-active {
+  animation: arcFlash 180ms ease-out forwards;
+}
+
+/* Callout sinaptico animato con bagliore e riflesso speculare */
+@keyframes synapticPulse {
+  0%, 100% {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px -3px rgba(255, 255, 255, 0.05);
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0.38);
+    box-shadow: 0 0 25px 2px rgba(255, 255, 255, 0.12);
+  }
+}
+
+.synaptic-callout {
+  animation: synapticPulse 4.5s ease-in-out infinite;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .spark-stream-a,
+  .spark-stream-b,
+  .spark-stream-c,
+  .spark-arc-active,
+  .line-sheen-sweep,
+  .line-sheen-sweep-delayed,
+  .card-specular-edge,
+  .synaptic-callout {
+    animation: none !important;
+  }
+}
