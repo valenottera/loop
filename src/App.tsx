@@ -77,9 +77,6 @@ export default function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  // Feedback per click brochure placeholder
-  const [brochureNotified, setBrochureNotified] = useState(false);
-
   // Modale Cookie Policy
   const [cookieModalOpen, setCookieModalOpen] = useState(false);
 
@@ -199,13 +196,6 @@ export default function App() {
     }
   };
 
-  const handleBrochureClick = (e: React.MouseEvent) => {
-    setBrochureNotified(true);
-    setTimeout(() => {
-      setBrochureNotified(false);
-    }, 6000);
-  };
-
   // Coordinate vettoriali del logo LO/OP (viewBox 0 0 500 156)
   // Geometria pura: le due 'O' sono perfettamente tonde, la barra diagonale '/'
   // attraversa al centro l'intero lockup dall'alto al basso, dividendo sia LO/OP che Longevity/Optimized.
@@ -321,7 +311,7 @@ export default function App() {
               onClick={() => setMobileMenuOpen(false)}
               className="inline-block text-center mt-2 px-6 py-3 rounded-full border border-white text-white hover:bg-white hover:text-black transition-all"
             >
-              Contattaci per iscriverti
+              Scrivici
             </a>
           </nav>
         )}
@@ -506,7 +496,7 @@ export default function App() {
               href="#contatti"
               className="px-8 py-3.5 bg-transparent text-white font-medium text-sm tracking-wide rounded-full border border-white/35 hover:border-white hover:bg-white/5 transition-all duration-200 text-center whitespace-nowrap focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white"
             >
-              Contattaci per iscriverti
+              Scrivici
             </a>
           </div>
         </div>
@@ -847,24 +837,14 @@ export default function App() {
           </h2>
 
           <div className="inline-flex flex-col items-center">
-            {/* 
-              TODO: Inserire il file PDF effettivo della brochure.
-              Esempio: href="/brochure-workshop-loop.pdf" download="brochure-loop.pdf"
-            */}
             <a
-              href="#"
-              onClick={handleBrochureClick}
+              href="/LO%20OP%20%C2%B7%20Brochure.pdf"
+              download="LO OP · Brochure.pdf"
               className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-white text-black font-medium text-sm tracking-wide border-2 border-white hover:bg-transparent hover:text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white"
             >
               <FileDown className="w-4 h-4" />
               <span>Scarica il PDF</span>
             </a>
-
-            {brochureNotified && (
-              <p className="text-xs text-white/70 mt-4 tracking-wide font-normal">
-                [File PDF in fase di rilascio. Lascia la tua email nel form contatti per riceverlo via email.]
-              </p>
-            )}
           </div>
         </div>
       </section>
@@ -881,7 +861,7 @@ export default function App() {
         <div className="max-w-2xl mx-auto">
           <div className="mb-10 text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-3">
-              Contattaci per iscriverti
+              Scrivici
             </h2>
             <p className="text-sm text-white/60 font-normal">
               Scrivici per ricevere informazioni su posti e disponibilità per i prossimi moduli.
